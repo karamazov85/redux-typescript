@@ -2,9 +2,9 @@ import { ActionType } from '../action-types'
 import { Action } from "../actions";
 import { Dispatch } from 'redux'
 
-interface Beer {
-    name: string 
-}
+// interface Beer {
+//     name: string 
+// }
 
 export const fetchBeers = (query: string) => {
 
@@ -18,11 +18,10 @@ export const fetchBeers = (query: string) => {
         try {
             const response = await fetch(`https://api.punkapi.com/v2/beers`)
             const beerJson = await response.json();
-            const beerNames = beerJson.map((beer: Beer) => beer.name);
 
             // dispatch beerNames to store
             dispatch({ 
-                type: ActionType.FETCHING_BEERS_SUCCESS, payload: beerNames 
+                type: ActionType.FETCHING_BEERS_SUCCESS, payload: beerJson 
             })
 
         } catch (error) {

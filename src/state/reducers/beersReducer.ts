@@ -14,7 +14,7 @@ const initialState = {
     error: null
 }
 
-export const reducer = (state: BeerState = initialState, action: Action) => {
+export const beersReducer = (state: BeerState = initialState, action: Action) => {
     switch (action.type) {
         case ActionType.FETCHING_BEERS:
             return { loading: true, beers: [], error: null };
