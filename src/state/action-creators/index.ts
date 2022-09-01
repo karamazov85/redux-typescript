@@ -6,7 +6,7 @@ import { Dispatch } from 'redux'
 //     name: string 
 // }
 
-export const fetchBeers = (query: string) => {
+export const fetchBeers = () => {
 
     // thunk for async fetching - pass in the dispatch func with Dispatch type
     return async (dispatch: Dispatch<Action>) => {
