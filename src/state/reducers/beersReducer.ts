@@ -1,9 +1,12 @@
 import { ActionType } from '../action-types'
 import { Action } from '../actions'
 
+interface Beer {
+    name: string 
+}
 interface BeerState {
     loading: boolean
-    beers: object[]
+    beers: Beer[]
     error: string | null
 }
 
