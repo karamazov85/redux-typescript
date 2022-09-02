@@ -2,11 +2,8 @@ import { ActionType } from '../action-types'
 import { Action } from "../actions";
 import { Dispatch } from 'redux' // type definition
 
-interface Beer {
-    name: string 
-}
 
-export const fetchBeers = () => {
+export const fetchBeers = (query: string) => {
 
     // thunk for async fetching - pass in the dispatch func with Dispatch type
     return async (dispatch: Dispatch<Action>) => {
@@ -16,13 +13,12 @@ export const fetchBeers = () => {
         })
 
         try {
-            const response = await fetch(`https://api.punkapi.com/v2/beers`)
+            const response = await fetch(`https://api.punkapi.com/v2/beers?beer_name=${query.toLowerCase()}`)
             const beerJson = await response.json();
-            const beerNames = beerJson.map((beer: Beer) => beer.name)
 
-            // dispatch beerNames to store
+            // dispatch beers to store
             dispatch({ 
-                type: ActionType.FETCHING_BEERS_SUCCESS, payload: beerNames
+                type: ActionType.FETCHING_BEERS_SUCCESS, payload: beerJson
             })
 
         } catch (error) {

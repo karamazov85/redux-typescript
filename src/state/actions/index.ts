@@ -1,4 +1,5 @@
 import { ActionType } from './../action-types/index';
+import { Beer } from '../../types-defs/beer-type-def'
 
 interface FetchingBeers {
     type: ActionType.FETCHING_BEERS;
@@ -6,7 +7,7 @@ interface FetchingBeers {
 
 interface FetchingBeersSuccess {
     type: ActionType.FETCHING_BEERS_SUCCESS;
-    payload: object[]
+    payload: Beer[]
 }
 
 interface FetchingBeersError {

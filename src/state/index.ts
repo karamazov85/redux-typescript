@@ -1,2 +1,3 @@
 export * from './reducers'
-export { fetchBeers } from './action-creators'
+export * as actionCreators from './action-creators'
+export * from './reducers'
