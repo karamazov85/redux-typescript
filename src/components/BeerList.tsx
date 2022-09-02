@@ -30,7 +30,7 @@ const BeerList: React.FC = () => {
             {error && <h3>{error}</h3>}
             {!loading && !error && 
                 beers.map((beer: Beer) => 
-                <ul key={Math.random()}>
+                <ul key={beer.id}>
                     <li>{beer.name}</li>
                     <li>{beer.tagline}</li>
                     <li>{beer.description}</li>
